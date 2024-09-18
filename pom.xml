@@ -1,0 +1,12 @@
+<dependency>
+    <groupId>com.lesfurets</groupId>
+    <artifactId>jenkins-pipeline-unit</artifactId>
+    <version>1.12</version>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>org.spockframework</groupId>
+    <artifactId>spock-core</artifactId>
+    <version>2.0-groovy-3.0</version>
+    <scope>test</scope>
+</dependency>

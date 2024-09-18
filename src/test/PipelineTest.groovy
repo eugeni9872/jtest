@@ -20,6 +20,6 @@ class PipelineTest extends BasePipelineTest {
         // Verify that the 'Build and Test' stage was executed
         assertJobStatusSuccess()
         assertStageContainsStep('Build and Test', 'sh')
-        printCallStack()  
+        printCallStack()  // Optionally print the call stack for debugging purposes
     }
 }

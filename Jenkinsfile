@@ -4,10 +4,10 @@ pipeline {
     }
   
     stages {
-        stage("Run test"){
+        stage("One"){
             steps {
-                withGradle {
-                    sh 'cd src/test && gradle build'
+                script {
+                    echo "Im in the current node!"
                 }
             }
         }
