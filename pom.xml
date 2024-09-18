@@ -45,9 +45,9 @@
                 <execution>
                     <goals>
                         <goal>compile</goal>
-                        <goal>testCompile</goal>
                         <goal>generateStubs</goal>
                         <goal>compileTests</goal>
+                        <goal>execute</goal>
                         <goal>removeStubs</goal>
                     </goals>
                 </execution>
