@@ -1,37 +1,22 @@
-/*
- * Copyright (C) by Courtanet, All Rights Reserved.
- */
-package com.lesfurets.jenkins;
+import com.lesfurets.jenkins.unit.BasePipelineTest
+import spock.lang.Specification
 
-import static com.lesfurets.jenkins.unit.MethodSignature.method;
-import static java.util.Arrays.stream;
-import static java.util.stream.Stream.concat;
-import static org.assertj.core.api.Assertions.assertThat;
+class JenkinsfileTest extends Specification {
 
-import java.util.function.Consumer;
-import java.util.stream.Stream;
-
-import org.junit.Before;
-import org.junit.Test;
-
-import com.lesfurets.jenkins.unit.BasePipelineTest;
-import com.lesfurets.jenkins.unit.declarative.DeclarativePipelineTest;
-import groovy.lang.Script;
-
-public class PipelineTest extends DeclarativePipelineTest  {
-
-    @Before
-    @Override
-    void setUp() throws Exception {
-        scriptRoots += 'src/test/jenkins/lib/'
-        scriptExtension = ''
+    def setup() {
+        // Setup your pipeline test
+        scriptRoot = new File("jenkins/lib")
         super.setUp()
     }
 
- @Test void agent_with_param_label() throws Exception {
-        runScript('utils.jenkins')
-        printCallStack()
-        assertCallStack().contains('aSlave')
+    def "test pipeline stages"() {
+        when:
+        def script = loadScript('utils.jenkins')
+        script.run()
+
+        then:
+        // Check that the pipeline stages were executed
         assertJobStatusSuccess()
+        assertStageWasExecuted('Build')
     }
 }
