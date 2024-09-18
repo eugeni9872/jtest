@@ -23,7 +23,7 @@ public class PipelineTest extends BasePipelineTest {
     @Override
     @Before
     public void setUp() throws Exception {
-        this.setScriptRoots(concat(stream(getScriptRoots()), Stream.of("src/test/jenkins")).toArray(String[]::new));
+        this.setScriptRoots(concat(stream(getScriptRoots()), Stream.of("src/test/jenkins")).toArray(String[](::new)));
         super.setUp();
         Consumer println = System.out::println;
         getHelper().registerAllowedMethod(method("step", String.class), println);
