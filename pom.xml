@@ -21,11 +21,29 @@
 
 <dependencies>
     <dependency>
+        <groupId>org.spockframework</groupId>
+        <artifactId>spock-core</artifactId>
+        <version>2.0-groovy-3.0</version> <!-- Ensure compatibility with your Groovy version -->
+        <scope>test</scope>
+    </dependency>
+    
+    <!-- Groovy Dependency -->
+    <dependency>
+        <groupId>org.codehaus.groovy</groupId>
+        <artifactId>groovy-all</artifactId>
+        <version>3.0.9</version> <!-- Ensure compatibility with Spock -->
+        <scope>test</scope>
+    </dependency>
+
+    <!-- Jenkins Pipeline Unit Dependency -->
+    <dependency>
         <groupId>com.lesfurets</groupId>
         <artifactId>jenkins-pipeline-unit</artifactId>
-        <version>1.9</version>
+        <version>1.12</version> <!-- Or the version you are using -->
+        <scope>test</scope>
     </dependency>
-  
+
+    
       <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
