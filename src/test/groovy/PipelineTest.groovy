@@ -15,24 +15,23 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.lesfurets.jenkins.unit.BasePipelineTest;
-
+package com.lesfurets.jenkins.unit.declarative
 import groovy.lang.Script;
 
-public class PipelineTest extends BasePipelineTest {
+public class PipelineTest extends DeclarativePipelineTest  {
 
-    @Override
     @Before
-    public void setUp() throws Exception {
-        this.setScriptRoots(concat(stream(getScriptRoots()), Stream.of("src/test/jenkins")).toArray(String[](::new)));
-        super.setUp();
-        Consumer println = System.out::println;
-        getHelper().registerAllowedMethod(method("step", String.class), println);
+    @Override
+    void setUp() throws Exception {
+        scriptRoots += 'src/test/jenkins/lib/'
+        scriptExtension = ''
+        super.setUp()
     }
 
-    @Test
-    public void should_return_cleanname() throws Exception {
-        Script script = (Script) loadScript("lib/utils.jenkins");
-        assertThat(script.invokeMethod("cleanName", new Object[] { "some thing"})).isEqualTo("SOME_THING");
-        printCallStack();
+ @Test void agent_with_param_label() throws Exception {
+        runScript('utils.jenkins')
+        printCallStack()
+        assertCallStack().contains('aSlave')
+        assertJobStatusSuccess()
     }
 }
