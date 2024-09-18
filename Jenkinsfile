@@ -1,15 +1,16 @@
 pipeline {
-    agent any
-
+    agent {
+        label 'jenkins-jenkins-agent'
+    }
+  
     stages {
-
-
-        stage('Build and Test') {
+        stage("One"){
             steps {
-                sh './gradlew clean test'
+                script {
+                    echo "Im in the current node!"
+                }
             }
         }
+      
     }
-
-
 }
