@@ -6,10 +6,8 @@ pipeline {
     stages {
         stage("Run test"){
             steps {
-                script{
-                    withGradle {
+                withGradle {
                     sh 'cd src/test && gradle build'
-                }
                 }
             }
         }
