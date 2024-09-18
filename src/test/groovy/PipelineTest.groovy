@@ -21,7 +21,7 @@ class PipelineTest extends BasePipelineTest {
 
     @Before
     void setUp() {
-        this.setScriptRoots(concat(stream(getScriptRoots()), Stream.of("/home/jenkins/agent/workspace/test_job")).toArray(String[]::new));
+        // this.setScriptRoots(concat(stream(getScriptRoots()), Stream.of("/home/jenkins/agent/workspace/test_job")).toArray(String[]::new));
         super.setUp()
     }
 
