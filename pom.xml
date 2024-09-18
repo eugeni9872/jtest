@@ -44,11 +44,11 @@
             <executions>
                 <execution>
                     <goals>
-                        <goal>compile</goal>
+                        <!-- <goal>compile</goal>
                         <goal>generateStubs</goal>
-                        <goal>compileTests</goal>
+                        <goal>compileTests</goal> -->
                         <goal>execute</goal>
-                        <goal>removeStubs</goal>
+                        <!-- <goal>removeStubs</goal> -->
                     </goals>
                 </execution>
             </executions>
