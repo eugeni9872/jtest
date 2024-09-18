@@ -1,25 +1,50 @@
 import com.lesfurets.jenkins.unit.BasePipelineTest
-import org.junit.Before
-import org.junit.Test
+import spock.lang.Specification
 
-class PipelineTest extends BasePipelineTest {
+class JenkinsfileTest extends Specification {
 
-    @Before
-    void setUp() {
+    def setup() {
+        // Configura el entorno de prueba
         super.setUp()
     }
 
-    @Test
-    void testBuildAndTestStage() {
-        // Load the pipeline script
-        def script = loadScript('Jenkinsfile')
-
-        // Run the pipeline
+    def "should execute all pipeline stages successfully"() {
+        when:
+        def script = loadScript('MyTest')
         script.run()
 
-        // Verify that the 'Build and Test' stage was executed
+        then:
+        // Verifica que cada etapa fue ejecutada
         assertJobStatusSuccess()
-        assertStageContainsStep('Build and Test', 'sh')
-        printCallStack()  // Optionally print the call stack for debugging purposes
+        assertStageWasExecuted('Build')
+        assertStageWasExecuted('Test')
+        assertStageWasExecuted('Deploy')
+    }
+
+    def "should execute the Build stage with expected steps"() {
+        when:
+        def script = loadScript('Jenkinsfile')
+        script.run()
+
+        then:
+        assertStageContainsStep('Build', 'echo Build Step')
+    }
+
+    def "should execute the Test stage with expected steps"() {
+        when:
+        def script = loadScript('Jenkinsfile')
+        script.run()
+
+        then:
+        assertStageContainsStep('Test', 'echo Test Step')
+    }
+
+    def "should execute the Deploy stage with expected steps"() {
+        when:
+        def script = loadScript('Jenkinsfile')
+        script.run()
+
+        then:
+        assertStageContainsStep('Deploy', 'echo Deploy Step')
     }
 }
