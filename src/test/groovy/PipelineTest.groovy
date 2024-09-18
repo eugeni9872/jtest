@@ -1,7 +1,7 @@
 import com.lesfurets.jenkins.unit.BasePipelineTest
 import spock.lang.Specification
 
-class JenkinsfileTest extends Specification {
+class PipelineTest extends Specification {
 
     def setup() {
         // Setup your pipeline test
