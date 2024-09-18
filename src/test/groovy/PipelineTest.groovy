@@ -15,7 +15,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.lesfurets.jenkins.unit.BasePipelineTest;
-package com.lesfurets.jenkins.unit.declarative
+import com.lesfurets.jenkins.unit.declarative.DeclarativePipelineTest;
 import groovy.lang.Script;
 
 public class PipelineTest extends DeclarativePipelineTest  {
