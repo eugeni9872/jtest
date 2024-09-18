@@ -27,13 +27,7 @@
         <scope>test</scope>
     </dependency>
     
-    <!-- Groovy Dependency -->
-    <dependency>
-        <groupId>org.codehaus.groovy</groupId>
-        <artifactId>groovy-all</artifactId>
-        <version>3.0.9</version> <!-- Ensure compatibility with Spock -->
-        <scope>test</scope>
-    </dependency>
+
 
     <!-- Jenkins Pipeline Unit Dependency -->
     <dependency>
@@ -43,7 +37,7 @@
         <scope>test</scope>
     </dependency>
 
-    
+
       <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
