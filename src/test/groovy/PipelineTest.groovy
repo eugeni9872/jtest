@@ -11,7 +11,7 @@ class PipelineTest extends BasePipelineTest {
 
     @Test
     void testBuildAndTestStage() {
-        def script = loadScript('Jenkinsfile')
+        def script = loadScript('MyTest')
         script.run()
         assertJobStatusSuccess()
         assertStageContainsStep('Build and Test', 'sh')
