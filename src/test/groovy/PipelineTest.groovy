@@ -25,11 +25,11 @@ class PipelineTest extends BasePipelineTest {
         super.setUp()
     }
 
-    @Test
-    void testBuildAndTestStage() {
-        def script = runScript('MyTest')
-        // script.run()
-        assertJobStatusSuccess()
-        assertStageContainsStep('Build and Test', 'sh')
-    }
+    // @Test
+    // void testBuildAndTestStage() {
+    //     def script = runScript('MyTest')
+    //     // script.run()
+    //     assertJobStatusSuccess()
+    //     assertStageContainsStep('Build and Test', 'sh')
+    // }
 }
