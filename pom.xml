@@ -24,14 +24,13 @@
         <groupId>com.lesfurets</groupId>
         <artifactId>jenkins-pipeline-unit</artifactId>
         <version>1.9</version>
-        <scope>test</scope>
     </dependency>
   
 </dependencies>
 
 <build>
     <plugins>
-        <!-- <plugin>
+        <plugin>
             <groupId>org.codehaus.gmavenplus</groupId>
             <artifactId>gmavenplus-plugin</artifactId>
             <version>1.12.0</version>
@@ -45,7 +44,7 @@
                     </goals>
                 </execution>
             </executions>
-        </plugin> -->
+        </plugin>
 
  <plugin>
             <groupId>org.apache.maven.plugins</groupId>
