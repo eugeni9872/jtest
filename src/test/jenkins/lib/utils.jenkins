@@ -1,37 +1,38 @@
 pipeline {
-    parameters {
-        booleanParam (
-            name: 'TOGGLE',
-            defaultValue: true,
-            description: 'Toggle this value'
-        ) 
-        choice (
-            name: 'CHOICE',
-            choices: ['One', 'Two', 'Three'],
-            description: 'Pick something'
-        ) 
-        password (
-            name: 'PASSWORD',
-            defaultValue: 'SECRET',
-            description: 'Enter a password'
-        ) 
-        string (
-            name: 'AGENT',
-            defaultValue: 'aSlave',
-            description: 'The slave to use for testing tested.'
-        ) 
-        text (
-            name: 'BIOGRAPHY',
-            defaultValue: 'they were born, they lived, they died',
-            description: 'Enter some information about the person'
-        ) 
-    }
-    agent { label params.AGENT }
+    agent any // This specifies that the pipeline can run on any available agent.
+
     stages {
-        stage('Example Build') {
+        stage('Build') {
             steps {
-                echo "Hello from ${AGENT}"
+                script {
+                    echo 'Building...'
+                    sh 'echo Build Step' // Executes a shell command
+                }
             }
+        }
+        
+        stage('Test') {
+            steps {
+                script {
+                    echo 'Testing...'
+                    sh 'echo Test Step' // Executes a shell command
+                }
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                script {
+                    echo 'Deploying...'
+                    sh 'echo Deploy Step' // Executes a shell command
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'This will always run after all stages, regardless of success or failure.'
         }
     }
 }
